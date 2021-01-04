@@ -1,0 +1,88 @@
+﻿
+body {
+    background-color: #CCFFCC;
+}
+
+.genel {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1050px;
+    height: auto;
+}
+
+.banner {
+    background-image: url('img/indir.jpg');
+    background-position: center;
+    width: 1050px;
+    height: 130px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body {
+    background-color: #FFCC66;
+    height: auto;
+}
+
+.menu {
+    width: 1050px;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.icerik {
+    width: 800px;
+    height: auto;
+    margin-left: 120px;
+    margin-right: auto;
+  
+}
+.kategori {
+    border: 1px solid orange;
+    margin-left: 1050px;
+    margin-right: auto;
+    width: 200px;
+    height: auto;
+    
+}
+
+.menulist {
+    margin-left: 200px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 30px;
+    position: center;
+}
+
+.content {
+    border: 1px solid orange;
+    width: 900px;
+    height: auto;
+    margin: 15px;
+    float: left;
+    overflow: hidden;
+}
+
+.resim {
+    width: 60px;
+    height: 70px;
+    float: inherit;
+    margin: 5px;
+}
+
+.menulist2 {
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: middle;
+    text-align: center;
+    padding: 50px;
+}
+
+.menulist2 {
+    position: initial;
+}
+
+h2 {
+    color: #FF3300;
+}

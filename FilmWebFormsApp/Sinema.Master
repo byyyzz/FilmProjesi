@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Sinema.master.cs" Inherits="FilmWebFormsApp.Sinema" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+  
+</head>
+<body>
+    <form id="form1" runat="server">
+       
+            <div class="banner"></div>
+            <div class="menu">
+
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="menulist" Font-Bold="True" Font-Size="Large" ForeColor="#FF3300" OnMenuItemClick="Menu1_MenuItemClick">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Anasayfa.aspx" Text="ANASAYFA" Value="ANASAYFA"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Kategoriler.aspx" Text="KATEGORİLER" Value="KATEGORİLER"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Vizyondakiler.aspx" Text="VİZYONDAKİLER" Value="VİZYONDAKİLER"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/FilmDetay.aspx" Text="FİLM DETAY" Value="FİLM SİL"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+            <br />           
+             <div class="icerik" style="float:left;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="kategori" style="float:left; font-weight: 700;">
+               
+
+                Kategoriler<br />
+                <a href="Aksiyon.aspx">Aksiyon Filmleri</a><br />
+                <a href="BilimKurgu.aspx">Bilim Kurgu Filmleri</a><br />
+                <a href="Biyografi.aspx">Biyografi Filmleri</a><br />
+                <a href="Dram.aspx">Dram Filmleri</a><br />
+                <a href="Gerilim.aspx">Gerilim Filmleri</a><br />
+                <a href="Komedi.aspx">Komedi Filmleri</a><br />
+                <a href="Romantik.aspx">Romantik Filmleri</a>
+               
+
+            </div>
+
+           
+        
+    </form>
+</body>
+</html>
