@@ -34,7 +34,7 @@
                 <br />
                 <asp:Button ID="Button3" runat="server" OnClientClick="return window.confirm('Silmek istediğinize emin misiniz?');" Text="SİL" CommandName="Sil" CommandArgument='<%#  Eval("adi") %>' />
                 <asp:Button ID="Button4" runat="server" Text="GÜNCELLE" CommandName="Guncelle" CommandArgument='<%#  Eval("adi") %>' />
-
+                <asp:Button ID="Button1" runat="server" Text="daha fazla görmek için tıklayın" CommandName="Detay" CommandArgument='<%#  Eval("adi") %>' />
             </div>
 
         </ItemTemplate>

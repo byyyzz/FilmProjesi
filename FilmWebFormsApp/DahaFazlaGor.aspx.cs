@@ -15,11 +15,10 @@ namespace FilmWebFormsApp
         {
             string filmName = Request.QueryString["film"];
             SqlDataSource1.SelectCommand = "select * from filmler where adi='" + filmName + "'";
-            string conString = ConfigurationManager.ConnectionStrings["SampleDBConnectionString"].ConnectionString;
-            SqlConnection sqlConnection = new SqlConnection(conString);           
-            SqlCommand videolink = new SqlCommand("select video from filmler where adi = '" + filmName + "'", sqlConnection);
-            videolink.Substring(10);
             
+            
+           
+
         }
     }
 }

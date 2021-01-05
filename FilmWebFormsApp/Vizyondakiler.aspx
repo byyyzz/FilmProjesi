@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SampleDBConnectionString %>" SelectCommand="SELECT * FROM [filmler] WHERE ([vizyontarih] >dateadd(day,-7,getdate()))"></asp:SqlDataSource>
-    <asp:Repeater runat="server" DataSourceID="SqlDataSource1">
+    <asp:Repeater runat="server" DataSourceID="SqlDataSource1" OnItemCommand="Unnamed1_ItemCommand">
         <ItemTemplate>
             <div class="content">
                 <img class="resim" src=" <%# Eval("resim") %>" />
@@ -23,6 +23,7 @@
                 <br />
                 Özet: <%# Eval("ozet") %>
                 <br />
+                <asp:Button ID="Button1" runat="server" Text="daha fazla görmek için tıklayın" CommandName="Detay" CommandArgument='<%#  Eval("adi") %>' />
 
             </div>
 

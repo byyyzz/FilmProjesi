@@ -35,6 +35,7 @@ namespace FilmWebFormsApp
                 string conString = ConfigurationManager.ConnectionStrings["SampleDBConnectionString"].ConnectionString;
                 using (SqlConnection sqlConnection = new SqlConnection(conString))
                 {
+                    sqlConnection.Open();
                     SqlCommand sil = new SqlCommand("delete from filmler where adi='" + filmAdi + "'", sqlConnection);
                     sil.ExecuteNonQuery();
                     Response.Redirect("FilmDetay.aspx");
@@ -44,6 +45,11 @@ namespace FilmWebFormsApp
             {
                 var filmAdi = (e.CommandArgument);
                 Response.Redirect("FilmGuncelle.aspx?film=" + filmAdi);
+            }
+            if (e.CommandName == "Detay")
+            {
+                var filmAdi = (e.CommandArgument.ToString());
+                Response.Redirect("DahaFazlaGor.aspx?film=" + filmAdi);
             }
         }
     }

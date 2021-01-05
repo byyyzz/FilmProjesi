@@ -19,10 +19,17 @@ namespace FilmWebFormsApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string video = Video.Text;
+            string vLink = video.Substring(32);
+            vLink = "https://www.youtube.com/embed/" + vLink;
+
             string conString = ConfigurationManager.ConnectionStrings["SampleDBConnectionString"].ConnectionString;
             using (SqlConnection sqlConnection = new SqlConnection(conString))
             {
-                SqlCommand ekle = new SqlCommand("insert into filmler (adi,yonetmen,tur,ozet,vizyontarih,sure,resim,imdb) values(@adi,@yonetmen,@tur,@ozet,@vizyontarih,@sure,@resim,@imdbpuan)", sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlCommand ekle = new SqlCommand("insert into filmler (adi,yonetmen,tur,ozet,vizyontarih,sure,resim,imdb,video) values(@adi,@yonetmen,@tur,@ozet,@vizyontarih,@sure,@resim,@imdbpuan,@video)", sqlConnection);
                 ekle.Parameters.AddWithValue("@adi", adi.Text);
                 ekle.Parameters.AddWithValue("@yonetmen", yonetmen.Text);
                 ekle.Parameters.AddWithValue("@tur", tur.Text);
@@ -30,7 +37,7 @@ namespace FilmWebFormsApp
                 ekle.Parameters.AddWithValue("@vizyontarih", vizyontarih.Text);
                 ekle.Parameters.AddWithValue("@sure", sure.Text);
                 ekle.Parameters.AddWithValue("@imdbpuan", imdb.Text);
-
+                ekle.Parameters.AddWithValue("@video", vLink);
 
                 if (FileUpload1.HasFile)
                 {
@@ -39,9 +46,11 @@ namespace FilmWebFormsApp
                     resimyolu = "img/" + resimyolu;
                     ekle.Parameters.AddWithValue("@resim", resimyolu);
                     ekle.ExecuteNonQuery();
-                }
 
+                }
             }
+            Response.Write("<script>alert('Film Başarıyla Eklendi.')</script>");
+
 
             adi.Text = "";
             yonetmen.Text = "";
@@ -49,6 +58,8 @@ namespace FilmWebFormsApp
             ozet.Text = "";
             vizyontarih.Text = "";
             sure.Text = "";
+            Video.Text = "";
+            imdb.Text = "";
 
         }
     }

@@ -23,6 +23,7 @@ namespace FilmWebFormsApp
             string conString = ConfigurationManager.ConnectionStrings["SampleDBConnectionString"].ConnectionString;
             using (SqlConnection sqlConnection = new SqlConnection(conString))
             {
+                sqlConnection.Open();
                 if (yonetmen.Text != "")
                 {
                     SqlCommand yonekle = new SqlCommand("update filmler set yonetmen='" + yonetmen.Text + "' where adi='" + filmName + "'", sqlConnection);
@@ -55,6 +56,14 @@ namespace FilmWebFormsApp
                     SqlCommand imdbekle = new SqlCommand("update filmler set imdb='" + imdb.Text + "' where adi='" + filmName + "'", sqlConnection);
                     imdbekle.ExecuteNonQuery();
                 }
+                if (Video.Text != "")
+                {
+                    string video = Video.Text;
+                    string vLink = video.Substring(32);
+                    vLink = "https://www.youtube.com/embed/"+vLink;
+                    SqlCommand vekle = new SqlCommand("update filmler set video='" + vLink + "' where adi ='" + filmName + "'", sqlConnection);
+                    vekle.ExecuteNonQuery();
+                }
                 if (adi.Text != "")
                 {
                     
@@ -63,9 +72,9 @@ namespace FilmWebFormsApp
                 }
                 
             }
+            Response.Write("<script>alert('Film Başarıyla Güncellendi.')</script>");
 
-            string filmAdi = adi.Text;
-            Response.Redirect("FilmGuncelle.aspx?film=" + filmAdi);
+            Response.Redirect("FilmDetay.aspx");
         }
     }
 }
