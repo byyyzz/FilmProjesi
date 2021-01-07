@@ -31,26 +31,22 @@ namespace FilmWebFormsApp
         {
             if (e.CommandName == "Sil")
             {
-                var filmAdi = (e.CommandArgument.ToString());
+                var id = (e.CommandArgument.ToString());
                 string conString = ConfigurationManager.ConnectionStrings["SampleDBConnectionString"].ConnectionString;
                 using (SqlConnection sqlConnection = new SqlConnection(conString))
                 {
                     sqlConnection.Open();
-                    SqlCommand sil = new SqlCommand("delete from filmler where adi='" + filmAdi + "'", sqlConnection);
+                    SqlCommand sil = new SqlCommand("delete from filmler where id='" + id + "'", sqlConnection);
                     sil.ExecuteNonQuery();
                     Response.Redirect("FilmDetay.aspx");
                 }
             }
             if (e.CommandName == "Guncelle")
             {
-                var filmAdi = (e.CommandArgument);
-                Response.Redirect("FilmGuncelle.aspx?film=" + filmAdi);
+                var id = (e.CommandArgument);
+                Response.Redirect("FilmGuncelle.aspx?film=" + id);
             }
-            if (e.CommandName == "Detay")
-            {
-                var filmAdi = (e.CommandArgument.ToString());
-                Response.Redirect("DahaFazlaGor.aspx?film=" + filmAdi);
-            }
+          
         }
     }
 }

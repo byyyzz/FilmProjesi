@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,48 +20,46 @@ namespace FilmWebFormsApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string video = Video.Text;
-            string vLink = video.Substring(32);
-            vLink = "https://www.youtube.com/embed/" + vLink;
 
+        }
+
+        [WebMethod]
+        public static void Item(string ad, string yonetmen, string tur, string konu, string sure, string tarih, string imdb, string video, string resim)
+        {
             string conString = ConfigurationManager.ConnectionStrings["SampleDBConnectionString"].ConnectionString;
             using (SqlConnection sqlConnection = new SqlConnection(conString))
             {
 
                 sqlConnection.Open();
 
-                SqlCommand ekle = new SqlCommand("insert into filmler (adi,yonetmen,tur,ozet,vizyontarih,sure,resim,imdb,video) values(@adi,@yonetmen,@tur,@ozet,@vizyontarih,@sure,@resim,@imdbpuan,@video)", sqlConnection);
-                ekle.Parameters.AddWithValue("@adi", adi.Text);
-                ekle.Parameters.AddWithValue("@yonetmen", yonetmen.Text);
-                ekle.Parameters.AddWithValue("@tur", tur.Text);
-                ekle.Parameters.AddWithValue("@ozet", ozet.Text);
-                ekle.Parameters.AddWithValue("@vizyontarih", vizyontarih.Text);
-                ekle.Parameters.AddWithValue("@sure", sure.Text);
-                ekle.Parameters.AddWithValue("@imdbpuan", imdb.Text);
-                ekle.Parameters.AddWithValue("@video", vLink);
-
-                if (FileUpload1.HasFile)
+                SqlCommand ekle = new SqlCommand("insert into filmler (adi,yonetmen,tur,ozet,sure,imdb,video,resim) values(@adi,@yonetmen,@tur,@ozet,@sure,@imdbpuan,@video,@resim)", sqlConnection);
+                ekle.Parameters.AddWithValue("@adi", ad);
+                ekle.Parameters.AddWithValue("@yonetmen", yonetmen);
+                ekle.Parameters.AddWithValue("@tur", tur);
+                ekle.Parameters.AddWithValue("@ozet", konu);
+                ekle.Parameters.AddWithValue("@vizyontarih", tarih);
+                ekle.Parameters.AddWithValue("@sure", sure);
+                ekle.Parameters.AddWithValue("@imdbpuan", imdb);
+                ekle.Parameters.AddWithValue("@resim", "img/" + resim);
+                if (video != "")
                 {
-                    FileUpload1.SaveAs(Server.MapPath("~/img/") + FileUpload1.FileName);
-                    string resimyolu = FileUpload1.FileName;
-                    resimyolu = "img/" + resimyolu;
-                    ekle.Parameters.AddWithValue("@resim", resimyolu);
+                    string vLink = video.Substring(32);
+                    vLink = "https://www.youtube.com/embed/" + vLink;
+                    ekle.Parameters.AddWithValue("@video", vLink);
                     ekle.ExecuteNonQuery();
-
                 }
+                else
+                {
+                    ekle.Parameters.AddWithValue("@video", video);
+                    ekle.ExecuteNonQuery();
+                }
+
             }
-            Response.Write("<script>alert('Film Başarıyla Eklendi.')</script>");
 
-
-            adi.Text = "";
-            yonetmen.Text = "";
-            tur.Text = "";
-            ozet.Text = "";
-            vizyontarih.Text = "";
-            sure.Text = "";
-            Video.Text = "";
-            imdb.Text = "";
 
         }
+
+
+
     }
 }

@@ -75,6 +75,7 @@
     <Content Include="Anasayfa.aspx" />
     <Content Include="BilimKurgu.aspx" />
     <Content Include="Biyografi.aspx" />
+    <Content Include="cardstyle.css" />
     <Content Include="DahaFazlaGor.aspx" />
     <Content Include="Dram.aspx" />
     <Content Include="FilmDetay.aspx" />
@@ -117,13 +118,16 @@
     <Content Include="img\sampiyon.jpg" />
     <Content Include="img\sherlock.jpg" />
     <Content Include="img\sherlock1.jpg" />
-    <Content Include="Kategoriler.aspx" />
     <Content Include="Komedi.aspx" />
+    <Content Include="proimg\button.png" />
+    <Content Include="proimg\images.jpg" />
+    <Content Include="proimg\movie.jpg" />
     <Content Include="Romantik.aspx" />
+    <Content Include="scripts\jquery-3.5.1.slim.js" />
     <Content Include="StyleSheet1.css" />
+    <Content Include="StyleSheet2.css" />
     <Content Include="Vizyondakiler.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aksiyon.aspx.cs">
@@ -203,13 +207,6 @@
     <Compile Include="ImdbPuan.aspx.designer.cs">
       <DependentUpon>ImdbPuan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Kategoriler.aspx.cs">
-      <DependentUpon>Kategoriler.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Kategoriler.aspx.designer.cs">
-      <DependentUpon>Kategoriler.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Komedi.aspx.cs">
       <DependentUpon>Komedi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,13 +236,6 @@
     <Compile Include="Vizyondakiler.aspx.designer.cs">
       <DependentUpon>Vizyondakiler.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -257,6 +247,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

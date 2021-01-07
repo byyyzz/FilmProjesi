@@ -1,52 +1,77 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Sinema.master.cs" Inherits="FilmWebFormsApp.Sinema" %>
 
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
+
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="StyleSheet1.css" rel="stylesheet" />
-  
+    <link href="StyleSheet2.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .auto-style1 {}
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
-       
-            <div class="banner"></div>
-            <div class="menu">
+    
 
-                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="menulist" Font-Bold="True" Font-Size="Large" ForeColor="#FF3300" OnMenuItemClick="Menu1_MenuItemClick">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Anasayfa.aspx" Text="ANASAYFA" Value="ANASAYFA"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/Kategoriler.aspx" Text="KATEGORİLER" Value="KATEGORİLER"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/Vizyondakiler.aspx" Text="VİZYONDAKİLER" Value="VİZYONDAKİLER"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/FilmDetay.aspx" Text="FİLM DETAY" Value="FİLM SİL"></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
+        <div class="wrapper">
+
+            <div class="header" style="font-size: large; font-style: italic; text-align:center">
+                <strong>FİLMSİTENİZ.CO</strong>
+
             </div>
-            <br />           
-             <div class="icerik" style="float:left;">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
-            <div class="kategori" style="float:left; font-weight: 700;">
+
+            <div class="side-nav">
+
+                
+
+                <ul>
+                    <li><a href="Anasayfa.aspx">Anasayfa</a></li>
+                    <li><a href="Vizyondakiler.aspx">Vizyondakiler</a></li>
+                    <li><a href="FilmDetay.aspx">Film Ara</a></li>
+                </ul>
+                <br />
+                <h3>Kategoriler</h3>
                
-
-                Kategoriler<br />
-                <a href="Aksiyon.aspx">Aksiyon Filmleri</a><br />
-                <a href="BilimKurgu.aspx">Bilim Kurgu Filmleri</a><br />
-                <a href="Biyografi.aspx">Biyografi Filmleri</a><br />
-                <a href="Dram.aspx">Dram Filmleri</a><br />
-                <a href="Gerilim.aspx">Gerilim Filmleri</a><br />
-                <a href="Komedi.aspx">Komedi Filmleri</a><br />
-                <a href="Romantik.aspx">Romantik Filmleri</a>
-               
-
+                <ul>
+                    <li><a href="Aksiyon.aspx">Aksiyon</a></li>
+                    <li><a href="BilimKurgu.aspx">BilimKurgu</a></li>
+                    <li><a href="Biyografi.aspx">Biyografi</a></li>
+                    <li><a href="Dram.aspx">Dram</a></li>
+                    <li><a href="Gerilim.aspx">Gerilim</a></li>
+                    <li><a href="Komedi.aspx">Komedi</a></li>
+                    <li><a href="Romantik.aspx">Romantik</a></li>
+                    <li><a href="#about">Tarih</a></li>
+                    <li><a href="#home">Müzikal</a></li>
+                    <li><a href="#news">Belgesel</a></li>
+                    <li><a href="#news">Macera</a></li>
+                    <li><a href="#about">Animasyon</a></li>
+                    <li><a href="#home">Spor</a></li>
+                    <li><a href="#news">Thriller</a></li>
+                    <li><a href="#news">Savaş</a></li>
+                    
+                </ul>
+                <asp:Button ID="ContentPlaceHolder1_ctl00_Button1_0" runat="server"  />
             </div>
 
-           
+            <div class="main-content" id="ex2">
+                <div class="content">
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+
+                </div>
+
+            </div>
+        </div>
         
     </form>
 </body>
 </html>
+

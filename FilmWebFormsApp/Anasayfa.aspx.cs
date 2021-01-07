@@ -16,17 +16,15 @@ namespace FilmWebFormsApp
     public partial class Anasayfa : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { 
-        
-
-      
+        {       
+                
 
         }
 
         protected void Unnamed1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            var filmAdi = (e.CommandArgument.ToString());
-            Response.Redirect("DahaFazlaGor.aspx?film=" + filmAdi);
+            var id = (e.CommandArgument.ToString());
+            Response.Redirect("DahaFazlaGor.aspx?film=" + id);
         }
     }
 

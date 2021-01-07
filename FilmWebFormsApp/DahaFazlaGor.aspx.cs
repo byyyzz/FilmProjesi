@@ -13,12 +13,9 @@ namespace FilmWebFormsApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string filmName = Request.QueryString["film"];
-            SqlDataSource1.SelectCommand = "select * from filmler where adi='" + filmName + "'";
+            string filmid = Request.QueryString["film"];
+            SqlDataSource1.SelectCommand = "select * from filmler where id='" + filmid + "'";        
             
-            
-           
-
         }
     }
 }

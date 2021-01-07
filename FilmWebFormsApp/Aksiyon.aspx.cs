@@ -16,8 +16,8 @@ namespace FilmWebFormsApp
 
         protected void Unnamed1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            var filmAdi = (e.CommandArgument.ToString());
-            Response.Redirect("DahaFazlaGor.aspx?film=" + filmAdi);
+            var filmid = (e.CommandArgument.ToString());
+            Response.Redirect("DahaFazlaGor.aspx?film=" + filmid);
         }
     }
 }
